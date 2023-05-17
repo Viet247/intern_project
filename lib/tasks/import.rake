@@ -5,7 +5,6 @@ task :import => [:environment] do
   spreadsheet = Roo::Spreadsheet.open file
   # lấy cột header (column name)
   header = spreadsheet.row(1)
-  byebug
   rows = []
     (2..spreadsheet.last_row).each do |i|
       rows << spreadsheet.row(i)

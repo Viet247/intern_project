@@ -68,6 +68,20 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
-/app
 db/jobs.csv
+/config/routes.rb
+
+#Ignore app
+/app/assets
+/app/channels
+/app/controllers
+/app/helpers
+/app/javascript
+/app/jobs
+/app/mailers
+/app/models/concerns
+/app/models/application_record.rb
+/app/views
+
+
 
