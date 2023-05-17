@@ -10,7 +10,33 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+# gem "sqlite3", "~> 1.4"
+gem "mysql2", "~> 0.5"
+
+gem 'kaminari'
+
+# Slim
+gem 'slim'
+
+# bootstrap
+gem 'bootstrap'
+
+# Devise là một giải pháp xác thực cho Rails
+gem 'devise'
+
+# Upload một hay nhiều file trong ứng dụng Ruby
+gem "carrierwave"
+
+# Solr cho tim kiem
+gem 'sunspot_rails'
+gem "sunspot_solr"
+gem 'progress_bar'
+
+#Gem roo hỗ trợ thao tác truy xuất file cho các dạng bảng tính phổ biến như csv, excel, open office, libre office.
+gem "roo"
+
+# Gem này giúp chúng ta hỗ trợ khả năng insert dữ liệu hàng loạt trong ActiveRecord
+gem "activerecord-import"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -42,6 +68,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# De debug
+gem "byebug"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
