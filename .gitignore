@@ -83,5 +83,12 @@ db/jobs.csv
 /app/models/application_record.rb
 /app/views
 
+solr/data
+solr/test/data
+solr/development/data
+solr/default/data
+solr/pids
+solr
+
 
 

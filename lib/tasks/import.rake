@@ -1,14 +1,37 @@
 desc "Import jobs from csv file"
 task :import => [:environment] do
+  jobs = []
+  industries = []
+  cities = []
   file = "db/jobs.csv"
-  # file có thể ở dạng file hoặc là path của file 
-  spreadsheet = Roo::Spreadsheet.open file
-  # lấy cột header (column name)
-  header = spreadsheet.row(1)
-  rows = []
-    (2..spreadsheet.last_row).each do |i|
-      rows << spreadsheet.row(i)
-    end 
-  Job.import! header, rows
+  CSV.foreach(file, :headers => true) do |row|
+    industries << Industry.new(category: row[1])
+    cities << City.new(work_place: row[16])
+  end
+  Industry.import industries, on_duplicate_ignore: false
+  City.import cities, on_duplicate_ignore: true
+  ids_of_industry = Industry.pluck(:category, :id).to_h
+  CSV.foreach(file, :headers => true) do |row|
+    jobs << Job.new(
+      benefit: row[0],
+      category_id: ids_of_industry[row[1]],
+      company_address: row[2],
+      company_district: row[3],
+      company_id: row[4],
+      company_name: row[5],
+      company_province: row[6],
+      description: row[7],
+      level: row[8],
+      name: row[9],
+      requirements: row[10],
+      salary: row[11],
+      type_work: row[12],
+      contact_email: row[13],
+      contact_name: row[14],
+      contact_phone: row[15] # work_place_id
+      )
+  end
+  Job.import jobs
 end
+
 
