@@ -32,6 +32,11 @@ gem 'sunspot_rails'
 gem "sunspot_solr"
 gem 'progress_bar'
 
+# gem courtry
+gem 'countries'
+
+
+
 #Gem roo hỗ trợ thao tác truy xuất file cho các dạng bảng tính phổ biến như csv, excel, open office, libre office.
 gem "roo"
 

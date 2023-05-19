@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_18_144137) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_19_061407) do
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "city_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_name"], name: "index_cities_on_city_name", unique: true
   end
 
   create_table "industries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,12 +35,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_144137) do
     t.text "description"
     t.string "level"
     t.string "name"
-    t.string "requirements"
+    t.text "requirements"
     t.string "salary"
     t.string "type_work"
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone"
+    t.string "work_place"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "industries_id"
