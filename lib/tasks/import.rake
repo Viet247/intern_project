@@ -19,6 +19,7 @@ task :import => [:environment] do
 
   ids_of_industries = Industry.pluck(:category, :id).to_h
   ids_of_cities = City.pluck(:city_name, :id).to_h
+  byebug
  
 
   #import data for jobs

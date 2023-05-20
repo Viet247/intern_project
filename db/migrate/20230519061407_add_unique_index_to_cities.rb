@@ -1,5 +1,5 @@
 class AddUniqueIndexToCities < ActiveRecord::Migration[7.0]
   def change
-    add_index :cities, :city_name, unique: true
+    add_index :cities, :name, unique: true
   end
 end

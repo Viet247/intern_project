@@ -11,7 +11,7 @@ class Job < ApplicationRecord
       text :name, stored: true, boost: 92  
       text :requirement, stored: true, boost: 68 
       text :work_place, stored: true, boost: 86 do |v|
-        v.city.city_name
+        v.city.name
       end
       text :company_name, stored: true, boost: 80
     end

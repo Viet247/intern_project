@@ -13,20 +13,6 @@ gem "sprockets-rails"
 # gem "sqlite3", "~> 1.4"
 gem "mysql2", "~> 0.5"
 
-gem 'kaminari'
-
-# Slim
-gem 'slim'
-
-# bootstrap
-gem 'bootstrap'
-
-# Devise là một giải pháp xác thực cho Rails
-gem 'devise'
-
-# Upload một hay nhiều file trong ứng dụng Ruby
-gem "carrierwave"
-
 # Solr cho tim kiem
 gem 'sunspot_rails'
 gem "sunspot_solr"
@@ -35,10 +21,6 @@ gem 'progress_bar'
 # gem courtry
 gem 'countries'
 
-
-
-#Gem roo hỗ trợ thao tác truy xuất file cho các dạng bảng tính phổ biến như csv, excel, open office, libre office.
-gem "roo"
 
 # Gem này giúp chúng ta hỗ trợ khả năng insert dữ liệu hàng loạt trong ActiveRecord
 gem "activerecord-import"
