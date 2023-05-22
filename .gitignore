@@ -71,6 +71,8 @@ yarn-debug.log*
 db/jobs.csv
 /config/routes.rb
 
+/solr
+
 
 
 

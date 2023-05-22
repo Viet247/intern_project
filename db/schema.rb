@@ -10,23 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_061407) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_014903) do
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "city_name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_name"], name: "index_cities_on_city_name", unique: true
+    t.integer "job_count"
+    t.index ["name"], name: "index_cities_on_name", unique: true
   end
 
   create_table "industries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "category"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_industries_on_category", unique: true
+    t.integer "job_count"
+    t.index ["title"], name: "index_industries_on_title", unique: true
   end
 
   create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "benefit"
+    t.bigint "industries_id"
     t.text "company_address"
     t.string "company_district"
     t.string "company_id"
@@ -41,13 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_061407) do
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone"
-    t.string "work_place"
+    t.bigint "cities_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "industries_id"
-    t.bigint "cities_id"
-    t.index ["cities_id"], name: "index_jobs_on_cities_id"
-    t.index ["industries_id"], name: "index_jobs_on_industries_id"
+    t.bigint "industry_id"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_jobs_on_city_id"
+    t.index ["industry_id"], name: "index_jobs_on_industry_id"
   end
 
 end
