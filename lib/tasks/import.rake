@@ -25,7 +25,7 @@ task :import => [:environment] do
   CSV.foreach(file, :headers => true) do |row|
     jobs << Job.new(
       benefit: row[0],
-      industries_id: ids_of_industries[row[1]],
+      industry_id: ids_of_industries[row[1]],
       company_address: row[2],
       company_district: row[3],
       company_id: row[4],
@@ -40,10 +40,10 @@ task :import => [:environment] do
       contact_email: row[13],
       contact_name: row[14],
       contact_phone: row[15], 
-      cities_id: ids_of_cities[row[16].delete(']"[')]
+      city_id: ids_of_cities[row[16].delete(']"[')]
       )
   end
-  Job.import jobs, on_duplicate_key_update: [:benefit, :industries_id, :company_address, :company_district, :company_id, :company_name, :company_province, :description, :level, :name, :requirements, :salary, :type_work, :contact_email, :contact_name, :contact_phone, :cities_id]
+  Job.import jobs, on_duplicate_key_update: [:benefit, :industry_id, :company_address, :company_district, :company_id, :company_name, :company_province, :description, :level, :name, :requirements, :salary, :type_work, :contact_email, :contact_name, :contact_phone, :city_id]
 
   # create indexs for  jobs
   Job.reindex
@@ -60,8 +60,11 @@ task :import => [:environment] do
     city.job_count = job_count.total
     city
   end
-end
 
+  # save count results to database
+  Industry.import jobs_industry, on_duplicate_key_update: [:job_count]
+  City.import jobs_city, on_duplicate_key_update: [:job_count]
+end
 
 
 

@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_014903) do
 
   create_table "jobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "benefit"
-    t.bigint "industries_id"
     t.text "company_address"
     t.string "company_district"
     t.string "company_id"
@@ -44,7 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_014903) do
     t.string "contact_name"
     t.string "contact_email"
     t.string "contact_phone"
-    t.bigint "cities_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "industry_id"

@@ -2,7 +2,6 @@ class CreateJobs < ActiveRecord::Migration[7.0]
   def change
     create_table :jobs do |t|
       t.text :benefit
-      t.bigint :industries_id
       t.text :company_address
       t.string :company_district
       t.string :company_id
@@ -17,7 +16,6 @@ class CreateJobs < ActiveRecord::Migration[7.0]
       t.string :contact_name
       t.string :contact_email
       t.string :contact_phone
-      t.bigint :cities_id
       t.timestamps
     end
   end
