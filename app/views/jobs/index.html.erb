@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-* {box-sizing: border-box;}
 
+* {box-sizing: border-box;}
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -13,7 +13,7 @@ body {
 
   /* css for footer */
 .footer {
-   position: fixed;
+   /* position: fixed; */
    left: 0;
    bottom: 0;
    width: 100%;
@@ -24,6 +24,11 @@ body {
 
 /* css for header */
 .header {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 120px;
   overflow: hidden;
   background-color: #f1f1f1;
   padding: 20px 10px;
@@ -40,10 +45,13 @@ body {
   border-radius: 4px;
 }
 
-.header a.logo {
+.header a .logo {
   font-size: 25px;
   font-weight: bold;
+ 
 }
+
+
 
 .header a:hover {
   background-color: #ddd;
@@ -71,7 +79,7 @@ body {
   }
 
   /* css for search box */
-  form.example input[type=text] {
+  .content__search .search__field{
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -80,7 +88,7 @@ body {
   background: #f1f1f1;
 }
 
-form.example button {
+.button {
   float: left;
   width: 20%;
   padding: 10px;
@@ -92,26 +100,35 @@ form.example button {
   cursor: pointer;
 }
 
-form.example button:hover {
+.button:hover {
   background: #0b7dda;
 }
 
-form.example::after {
+.content__search::after {
   content: "";
   clear: both;
   display: table;
 }
 
+#container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 100px 100px;
+}
 
-  
+
+
 }
 </style>
 </head>
+
+
 <body>
 
+
 <div class="header">
-  <a href="#default" class="logo">
-    <img src="" alt="logo" width="74px" height="74px"/>
+  <a class="logo" href="#home">
+    <%= image_tag "logo.jpg", style: 'height:80px; width:80px;'%>
   </a>
   <div class="header-right">
     <a class="active" href="#home">Home</a>
@@ -124,39 +141,52 @@ form.example::after {
 
 
 <div class="content">
-  <p>Total jobs:</p><%=@total_jobs%>
-</div>
+  <div class = "banner">
+    <%= image_tag "banner.png",style: 'height:700px; width:100%;'%>
+    <center><h1>Total jobs: <%=@total_jobs%></h1> </center>
+  <div>
 
-<h2>Search Button</h2>
-<form class="example" action="">
-  <input type="text" placeholder="Search.." name="search">
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
+  <div class="content__search">
+    <%= form_tag search_jobs_path, method: :get, class: "content__search-form" do %>
+      <%=text_field_tag :search, params[:search], placeholder: "Search..", class: "search__field"%>
+      <%=submit_tag "Search",class: "button"%>
+    <%end%>
+  </div>
 
 <h2>Latest Job</h2>
-<table border = "1px">
+<div class="container__latest-jobs">
   <%@latest_jobs.each do |job|%>
-  <tr>
-    <td><%=job.name%></td>
-    <td><%=job.description%></td>
-    <td><%=job.salary%></td>
-    <td><%=job.city.name%></td>
-  </tr>
+    <div class="item item1">
+      Job title: <%=job.name%> <br />
+      Short description: <%=job.description%> <br />
+      Location: <%=job.city.name%>  <br />
+      Salary: <%=job.salary%>
+    </div>
+    <br /> 
   <%end%>
-</table>
+</div>
 
 <h2>Top City</h2>
-<%@top_jobs_cities.each do |city|%>
-  <h3><%=city.name%>:<%=city.job_count%></h3>
-<%end%>
+<div class="container" style = "display: grid; grid-template-columns: 200px 200px 200px;grid-template-rows: 100px 100px;">
+  <%@top_jobs_cities.each do |city|%>
+    <div class="item item1">
+        <%=city.name%>:<%=city.job_count%>
+    </div>
+  <%end%>
+</div>
 
 <h2>Top Industry</h2>
-<%@top_jobs_industries.each do |industry|%>
-  <h3><%=industry.title%>:<%=industry.job_count%></h3>
-<%end%>
+<div class="container" style = "display: grid; grid-template-columns: 200px 200px 200px;grid-template-rows: 100px 100px;">
+  <%@top_jobs_industries.each do |industry|%>
+    <div class="item item1">
+      <%=industry.title%>:<%=industry.job_count%>
+    </div>
+  <%end%>
+</div>
 
 <div class="footer">
   <p>ZIGExN Ventura 2023</p>
 </div>
 </body>
 </html>
+

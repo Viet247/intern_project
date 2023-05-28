@@ -21,6 +21,9 @@ gem 'progress_bar'
 # gem courtry
 gem 'countries'
 
+# simple form
+gem 'simple_form'
+
 
 # Gem này giúp chúng ta hỗ trợ khả năng insert dữ liệu hàng loạt trong ActiveRecord
 gem "activerecord-import"
