@@ -58,15 +58,12 @@ task :import => [:environment] do
   jobs_city = City.all.map do |city|
     job_count = Job.search {fulltext "\"#{city.name}\""}
     city.job_count = job_count.total
+    v = job_count.total
     city
   end
 
   # save count results to database
   Industry.import jobs_industry, on_duplicate_key_update: [:job_count]
   City.import jobs_city, on_duplicate_key_update: [:job_count]
+  
 end
-
-
-
-
-

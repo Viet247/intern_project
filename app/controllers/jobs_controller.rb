@@ -4,7 +4,6 @@ class JobsController < ApplicationController
     @latest_jobs = Job.order(created_at: :desc).limit(5)
     @top_jobs_industries = Industry.order(job_count: :desc).limit(9)
     @top_jobs_cities = City.order(job_count: :desc).limit(9)
-    byebug
   end
 
   def new
