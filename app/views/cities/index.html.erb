@@ -1,0 +1,29 @@
+<%= render partial: "shared/header"%>
+<h1>City list</h1>
+
+<div class="city_list">
+  <a href = "#vn">
+    Viet Nam
+  </a>
+  <a href = "#int">
+    International
+  </a>
+</div>
+
+<h2 id ="vn">Viet Nam</h2>
+<div class="grid-container">
+  <%@cities_vn.each do |city|%>
+    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: city.name) %>
+  <%end%>
+</div>
+
+<h2 id ="int">International</h2>
+
+<div class="grid-container">
+ <%@cities_int.each do |city|%>
+    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: city.name) %>
+  <%end%>
+</div>
+
+<%= render partial: "shared/footer"%>
+
