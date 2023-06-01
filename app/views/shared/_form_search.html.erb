@@ -1,0 +1,6 @@
+  <div class="content__search">
+    <%= form_tag search_jobs_path, method: :get, class: "content__search-form" do %>
+      <%=text_field_tag :search, params[:search], placeholder: "Search..", class: "search__field"%>
+      <%=submit_tag "Search",class: "button"%>
+    <%end%>
+  </div>
