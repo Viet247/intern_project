@@ -33,24 +33,45 @@ body {
   background: #0b7dda;
 }
 
+.content__search{
+  width: 500px;
+  margin: 0 auto;
+}
+
 .content__search::after {
   content: "";
   clear: both;
   display: table;
 }
 
-#container {
+.container {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
+  grid-template-columns: 500px 500px 500px;
   grid-template-rows: 100px 100px;
+}
+
+
+
+.latest-jobs-detail{
+  border: 1px solid;
+  padding: 20px;
+  margin: 0 auto;
+  width: 975px;
+}
+
+.subject {
+  margin: 30px 7px;
+}
+
 
  <%# css for footer  %>
-.banner_image {
+ 
+.banner_image{
   background-image: url(<%= asset_path 'ban.jpg' %>);
   background-position: right center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 280px; 
+  height: 453px; 
 }
 
 .banner_image > h1{
@@ -59,6 +80,16 @@ body {
 }
 
 .margin__top{
-    margin-top: 200px;
-  }
+    margin-top: 440px;
+}
+
+.container__job-top-city{
+  
+}
+
+.container__all{
+  margin-top: 100px;
+}
+
+
   

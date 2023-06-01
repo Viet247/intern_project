@@ -1,0 +1,25 @@
+<%= render partial: "shared/header"%>
+<div class = "margin__header">
+  <%= render partial: "shared/form_search"%>
+</div>
+  
+
+<div class = "result___summary">
+  <h3>Total:<%=@search.total%></h3>
+  <h3>Result for: <%=params[:search] %></h3>
+</div>
+<p class>Paging: 24</p>
+
+
+<div class = "results__detail">
+  <%@jobs.each do |job|%>
+    <div class="results__detail-infor">
+      Job title: <%=job.name%> <br />
+      Short description: <%=job.description%> <br />
+      Location: <%=job.city.name%>  <br />
+      Salary: <%=job.salary%>
+    </div>
+    <br />
+  <%end%>
+</div>
+<%= render partial: "shared/footer"%>
