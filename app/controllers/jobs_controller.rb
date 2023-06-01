@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  # get data for top page
   def index
     @total_jobs = Job.count
     @latest_jobs = Job.order(created_at: :desc).limit(5)
@@ -9,6 +10,7 @@ class JobsController < ApplicationController
   def new
   end
 
+  # simple search
   def search
     @search = Job.search do
       fulltext params[:search] do
