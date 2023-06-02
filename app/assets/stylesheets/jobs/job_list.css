@@ -1,0 +1,46 @@
+.margin__header{
+    margin-top: 50px;
+}
+
+.result__summary{
+    display: flex;
+    justify-content: space-around;
+}
+
+.result__summary + p {
+    float: right;
+}
+
+.result___summary > h3{
+  display: inline-block;
+  margin: 24px;
+}
+.results__detail {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: auto auto;
+
+}
+
+.results__detail-infor, .results__fav{
+  border: solid 1px;
+  margin: 20px;
+  padding: 14px;
+}
+
+.paging{
+  text-align: center;
+}
+
+.results__details-salary{
+    float: right;
+}
+
+
+.results__fav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

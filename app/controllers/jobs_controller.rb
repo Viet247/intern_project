@@ -20,7 +20,7 @@ class JobsController < ApplicationController
       end
     end
     @jobs = @search.results
-    render 'jobs/list'
+    render 'jobs/job_list'
   end
 end
 
