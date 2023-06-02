@@ -1,4 +1,4 @@
 class Industry < ApplicationRecord
-    # 1 industry have many jobs
-    has_many :jobs
+  has_many :jobs
+  scope :all_industries, -> { where('job_count > ?', '1') }
 end
