@@ -1,5 +1,5 @@
 <%# Job list page %>
-<%= render partial: "shared/header"%>
+
 <div class = "margin__header">
   <%= render partial: "shared/form_search"%>
 </div>
@@ -23,6 +23,7 @@
     </div>
     <div class = "results__fav">
       <%= link_to "Favourite", class: "results__fav-icon" %>
+      <%= link_to "detail_jobs",job_path(job.id), class: "results__fav-icon" %>
     </div>
   <%end%>
 </div>
@@ -30,5 +31,5 @@
   <p >Paging: 24</p>
 </div>
 
-<%= render partial: "shared/footer"%>
+
 

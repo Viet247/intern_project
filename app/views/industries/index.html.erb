@@ -1,11 +1,11 @@
-<%= render partial: "shared/header"%>
+
 <h1 class = "subject">Industry list</h1>
 <div class="grid-container">
   <%@industries.each do |industry|%>
     <%= link_to "#{industry.title}:#{industry.job_count}", search_jobs_path(search: industry.title) %>
   <%end%>
 </div>
-<%= render partial: "shared/footer"%>
+
 
 
 
