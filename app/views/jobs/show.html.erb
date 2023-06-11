@@ -1,0 +1,22 @@
+<%= link_to "Top",root_path %>
+<%= link_to "#{@job.city.name}", search_jobs_path(search: "\"#{@job.city.name}\"")%>
+<%= link_to "#{@job.industry.title}", search_jobs_path(search: "\"#{@job.industry.title}\"")%>
+<%= @job.name %> 
+
+<div class = "results__detail">
+  <div class="results__detail-infor">
+    <h1> <b>Job title:</b> <%=@job.name%> </h1>
+    <b>Company:</b> <%=@job.company_name%>  <br />
+    <b>Location:</b> <%=@job.city.name%>  <br />
+    <b>Salary:</b> <%=@job.salary%>
+    <b>Long description:</b> <%=@job.description%> <br />
+  </div>
+  <div class = "results__fav">
+    <%= link_to "Apply", job_apply_path(@job.id),class: "results__fav-icon" %> 
+  </div>
+</div>
+
+<%= link_to "Apply",job_apply_path(@job.id), class: "results__fav-icon" %>
+<%= link_to "Favourite",job_favourite_path(@job.id), class: "results__fav-icon" %>
+
+

@@ -22,5 +22,17 @@ class JobsController < ApplicationController
     @jobs = @search.results
     render 'jobs/job_list'
   end
+
+  def show
+    @job = Job.find params[:id]
+  end
+
+  def apply
+    @job = Job.find params[:job_id]
+  end
+
+  def favourite
+    @job = Job.find params[:job_id]
+  end
 end
 
