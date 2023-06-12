@@ -34,5 +34,10 @@ class JobsController < ApplicationController
   def favourite
     @job = Job.find params[:job_id]
   end
+
+  def confirm
+    render 'jobs/jobs_confirm'
+
+  end
 end
 
