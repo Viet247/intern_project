@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_22_014903) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_024350) do
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "job_count"
@@ -47,8 +49,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_22_014903) do
     t.datetime "updated_at", null: false
     t.bigint "industry_id"
     t.bigint "city_id"
+    t.bigint "industries_id"
+    t.bigint "cities_id"
+    t.index ["cities_id"], name: "index_jobs_on_cities_id"
     t.index ["city_id"], name: "index_jobs_on_city_id"
+    t.index ["industries_id"], name: "index_jobs_on_industries_id"
     t.index ["industry_id"], name: "index_jobs_on_industry_id"
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

@@ -14,6 +14,8 @@
  *= require_self
  */
  /* import files css to apply css  */
- @import "jobs"
+ @import "jobs";
+ @import "cities";
+ @import "devise"
 
 

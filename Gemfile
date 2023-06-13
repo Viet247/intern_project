@@ -21,6 +21,9 @@ gem 'progress_bar'
 # gem courtry
 gem 'countries'
 
+# xac thuc nguoi dung
+gem 'devise'
+
 # simple form
 gem 'simple_form'
 
