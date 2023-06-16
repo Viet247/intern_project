@@ -1,35 +1,34 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
-    
     build_resource(sign_up_params)
-
-    resource.save(validate: false)
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
+    resource.valid?
+    if resource.errors[:email].count.zero?
+      resource.save(validate: false)
+      render :notice
     else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
+      render :new
     end
   end
 
-  def register
-    render :register
+  def notice
+
   end
 
-  def show
+  def update
+    resource
+    if resource.update(account_update_params)
+      sign_in(resource, bypass: true)
+      redirect_to root_path
+    else
+      render :update
+    end
   end
 
+  private 
+
+  def account_update_params
+    params.permit(:email, :full_name, :password, :password_confirmation,:curriculum_vitate)
+  end
 end
-
 

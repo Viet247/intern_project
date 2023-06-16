@@ -1,14 +1,14 @@
 <h2>Register</h2>
-<%= form_with url: register_3_url, method: :patch do |f| %>
+<%= form_with url: register_3_url, method: :patch, data: {turbo: false} do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= @email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: resource.email %>
   </div>
 
   <div class="field">
     <%= f.label :full_name%>
-    <%= f.text_field :user_name%>
+    <%= f.text_field :full_name%>
   </div>
 
   <div class="field">
@@ -22,6 +22,11 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :curriculum_vitate %><br />
+    <%= f.file_field :curriculum_vitate, accept:".doc, .pdf, .xls, .xlsx, .zip"%>
   </div>
   
   
