@@ -7,6 +7,7 @@ class Users::ConfirmationsController <  Devise::ConfirmationsController
     resource.confirmed_at = Time.now
     resource.save(validate: false)
     sign_in(:user,resource)
+
     
   end
 
