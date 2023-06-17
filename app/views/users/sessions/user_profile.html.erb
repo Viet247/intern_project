@@ -1,0 +1,19 @@
+<h1 class="heading__mypage">My Page</h1>
+
+<div class="heading__mypage-infor">
+
+  <div class="heading__mypage-field">
+    <b>Email:</b> <%= resource.email%>
+  </div>
+  <div class="heading__mypage-field">
+    <b>Full Name:</b> <%= resource.full_name%>
+  </div>
+  <div class="heading__mypage-field">
+    <b>MY CV:</b> <%= link_to "Download", "#{resource.curriculum_vitate.url}"%>
+  </div>
+
+  <div class="heading__mypage-links">
+    <%= link_to "Update",""%>
+    <%= link_to "My Jobs",""%>
+  </div>
+</div>

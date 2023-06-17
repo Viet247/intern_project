@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource
     if resource.update(account_update_params)
       sign_in(resource, bypass: true)
-      redirect_to root_path
+      redirect_to my_path
     else
       render :update
     end
