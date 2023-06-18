@@ -1,5 +1,5 @@
 <h2>Register</h2>
-<%= form_with url: register_3_url, method: :patch, data: {turbo: false} do |f| %>
+<%= form_for :user, url: register_3_url, method: :patch, data: {turbo: false} do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />

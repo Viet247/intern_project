@@ -23,14 +23,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:_method] == 'patch'
       resource
       if resource.update(account_update_params)
+        flash.now[:alert] = "Register successfully!"
         sign_in(resource, bypass: true)
         redirect_to my_path
       else
-        render :update
+        render :edit
       end
     elsif params[:_method] == 'put'
-      if current_user.update(account_update_params)
+      if resource.update(account_update_params)
         flash.now[:alert] = "Update successfully!"
+        sign_in(resource, bypass: true)
         redirect_to my_path
       else
         render :edit
@@ -41,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private 
 
   def account_update_params
-    params.permit(:full_name, :password, :password_confirmation, :current_password, :curriculum_vitate)
+    params.require(:user).permit(:full_name, :password, :password_confirmation, :curriculum_vitate)
   end
 end
 
