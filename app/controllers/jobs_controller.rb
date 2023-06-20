@@ -15,7 +15,6 @@ class JobsController < ApplicationController
     @search = Job.search do
       fulltext params[:search] do
         phrase_fields :name => 6.0
-        query_phrase_slop 1
         highlight :name
       end
     end
@@ -27,17 +26,16 @@ class JobsController < ApplicationController
     @job = Job.find params[:id]
   end
 
-  def apply
-    @job = Job.find params[:job_id]
-  end
+  # def apply
+  #   @job = Job.find params[:job_id]
+  # end
 
-  def favourite
-    @job = Job.find params[:job_id]
-  end
+  # def favourite
+  #   @job = Job.find params[:job_id]
+  # end
 
-  def confirm
-    render 'jobs/jobs_confirm'
-
-  end
+  # def confirm
+  #   render 'jobs/jobs_confirm'
+  # end
 end
 

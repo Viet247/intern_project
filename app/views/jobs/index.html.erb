@@ -1,6 +1,4 @@
 <!-- Top page-->
-
-
 <div class="content">
   <div class = "banner_image">
       <h1>Total jobs: <%=@total_jobs%></h1>
@@ -20,7 +18,7 @@
   <%@latest_jobs.each do |job|%>
     <div class="latest-jobs-detail">
       <b>Job title:</b> <%=job.name%> <br />
-      <b>Short description:</b> <%=job.description%> <br />
+      <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "detail", job_path(job.id)%> <br />
       <b>Location:</b> <%=job.city.name%>  <br />
       <b>Salary:</b> <%=job.salary%>
     </div>
@@ -47,7 +45,4 @@
   <%end%>
   <div class ="container__all" ><%= link_to "All industries", industries_url %></div>
 </div>
-
-
-
 
