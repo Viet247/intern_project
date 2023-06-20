@@ -1,5 +1,15 @@
 class AppliesController < ApplicationController
+
   def new
-    # byebug
   end
+
+  def show
+  end
+
+  def confirm
+    redirect_to confirm_path
+  end
+  
 end
+
+

@@ -1,0 +1,14 @@
+.input__information{
+    float: right;
+}
+.confirmation__btn {
+  margin-top: 50px;
+  display: inline-flex;
+}
+.confirmation__btn > a{
+ 
+  display: flex;
+  justify-content: center;
+  margin: 0 10px 0 0;
+  width: 100px;
+}

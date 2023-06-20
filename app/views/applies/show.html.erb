@@ -1,0 +1,13 @@
+<div id="container">
+  <aside class="ribbon3"><span class = "ribbon3__number">2</span> Apply confirmation</aside>
+  <h1 class ="">Confirmation</h1>
+  <div class="input__information">
+    <b>Full name: </b><%= current_user.full_name %> <br />
+    <b>Email: </b><%= current_user.email%> <br />
+    <b>CV: </b><%= current_user.curriculum_vitate.url%> 
+  </div>
+  <div class = "confirmation__btn">
+    <%= link_to "Edit",apply_path, class: "button"%>
+    <%= link_to "Done","", class: "button" %>
+  </div>
+</div>
