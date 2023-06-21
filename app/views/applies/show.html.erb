@@ -4,10 +4,12 @@
   <div class="input__information">
     <b>Full name: </b><%= current_user.full_name %> <br />
     <b>Email: </b><%= current_user.email%> <br />
-    <b>CV: </b><%= current_user.curriculum_vitate.url%> 
+    <b>CV: </b><%= link_to current_user.curriculum_vitate.url do %>
+        <%= current_user.curriculum_vitate.file.filename %>
+        <% end %>
   </div>
   <div class = "confirmation__btn">
     <%= link_to "Edit",apply_path, class: "button"%>
-    <%= link_to "Done","", class: "button" %>
+    <%= link_to "Done", confirm_path, data: { turbo_method: 'post' }, class: 'btn btn-primary' %>
   </div>
 </div>

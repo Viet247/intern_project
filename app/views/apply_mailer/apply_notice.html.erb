@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Dear <%= @user.full_name %></h1>
+    <p>Thank you for applied with VenJOB. Your applied job's information is as follow:</p>
+    <br>
+    <p>Job title: <%= @job.name %></p>
+    <p>Location: <%= @job.city.name %> </p>
+    <p>Company: <%= @job.company_name %></p>
+    <br>
+    <p> Your submitted information:	</p>
+    <p> Full Name: <%= @apply.full_name %> </p>
+    <p> Email: <%= @apply.email %></p>
+    <%byebug%>
+    <p> CV Link:<%= link_to @user.curriculum_vitate.file.filename, "http://localhost:3000/#{@user.curriculum_vitate.url}" %></p>
+    Best,				
+  </body>
+</html>
+

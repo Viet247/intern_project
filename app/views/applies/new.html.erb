@@ -17,7 +17,9 @@
     <br />
     <div class="form__apply-field"> 
       <%= f.label :cv, "CV:", class: "form__label"%>
-      <%= f.text_field :cv, class: "form__text-field",value: current_user.curriculum_vitate.url, disabled: true%> 
+      <%= link_to current_user.curriculum_vitate.url do %>
+        <%= current_user.curriculum_vitate.file.filename %>
+      <% end %>
     </div>
     <div class ="form__apply-btn">
     <%= f.submit "Confirm", class: "button confirm__btn" %>
