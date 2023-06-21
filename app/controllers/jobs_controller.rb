@@ -25,17 +25,5 @@ class JobsController < ApplicationController
   def show
     @job = Job.find params[:id]
   end
-
-  # def apply
-  #   @job = Job.find params[:job_id]
-  # end
-
-  # def favourite
-  #   @job = Job.find params[:job_id]
-  # end
-
-  # def confirm
-  #   render 'jobs/jobs_confirm'
-  # end
 end
 

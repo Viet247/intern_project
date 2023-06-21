@@ -10,9 +10,9 @@
     <b>Location:</b> <%=@job.city.name%>  <br />
     <b>Type work:</b> <%=@job.type_work%>  <br />
     <b>Salary:</b> <%=@job.salary%> <br />
-    <b>Benefit:</b> <%=@job.benefit%> <br />
-    <b>Requirements:</b> <%=@job.requirements%> <br />
-    <b>Long description:</b> <%=@job.description%> <br />
+    <b>Benefit:</b> <pre><%=@job.benefit%><pre> <br />
+    <b>Requirements:</b> <pre><%=@job.requirements%> <pre><br />
+    <b>Long description:</b> <pre><%=@job.description%> <pre> <br />
   </div>
   <div class = "results__fav">
     <%= link_to "Apply", apply_path(job_id: @job.id), class: "results__fav-icon" %> 

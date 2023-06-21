@@ -45,5 +45,9 @@ class AppliesController < ApplicationController
 
   def done
   end
+
+  def see_applied_jobs
+    @applied_jobs = current_user.jobs.select("jobs.*, applies.created_at as applied_at").joins(:applies)
+  end
 end
 

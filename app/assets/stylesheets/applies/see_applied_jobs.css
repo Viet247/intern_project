@@ -1,0 +1,16 @@
+.applied_jobs-heading{
+  display: flex;
+  justify-content: center;
+}
+
+.applied__jobs-detail{
+    border: 1px solid;
+    padding: 20px;
+    margin: 50 auto;
+    width: 975px;
+  }
+
+.applied__jobs-detail-infor{
+  display: flex;
+  justify-content: space-between;
+}

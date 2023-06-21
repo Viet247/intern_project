@@ -1,0 +1,15 @@
+  <div class="container__applied_jobs">
+    <h3 class="applied_jobs-heading"> Applied jobs</h3>
+    <% @applied_jobs.each  do |job|%>
+      <div class="applied__jobs-detail">
+        <b>Job title:</b> <%=job.name%> <br />
+        <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "detail", job_path(job.id)%> <br />
+        <div class = "applied__jobs-detail-infor">
+          <b>Location:</b> <%=job.city.name%>  
+          <b>Salary:</b> <%=job.salary%>
+          <b>Applied at:</b> <%= job.applied_at %>
+        </div>
+    </div>
+  <%end%>
+</div>
+
