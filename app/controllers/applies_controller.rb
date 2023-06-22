@@ -14,10 +14,14 @@ class AppliesController < ApplicationController
   end
 
   def confirm
+    job = Job.find(session[:job_id])
     apply = Apply.new(email: params[:email],
                       full_name: params[:fullname],
                       user_id: current_user.id,
-                      job_id: session[:job_id])
+                      job_id: session[:job_id],
+                    city_id: job.city_id,
+                  industry_id: job.industry_id)
+
     if apply.valid?
       session[:apply] = apply
       redirect_to confirm_path
@@ -50,4 +54,3 @@ class AppliesController < ApplicationController
     @applied_jobs = current_user.jobs.select("jobs.*, applies.created_at as applied_at").joins(:applies)
   end
 end
-

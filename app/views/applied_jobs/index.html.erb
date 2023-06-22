@@ -1,0 +1,64 @@
+Applied jobs
+<div data-controller="flatpickr">
+<%= search_form_for @q, url: applied_jobs_path do |f| %>
+
+  <%= f.label :email %>
+  <%= f.search_field :email_cont %> <br />
+  <%= f.select :city_id_eq, options_for_select(@cities, @q.city_id_eq), { include_blank: 'Select City' }, class: "form-select" %> <br />
+  <%= f.select :industry_id_eq, options_for_select(@industries, @q.industry_id_eq), { include_blank: 'Select Industry' }, class: "form-select" %> <br />
+  <%= f.search_field :created_at_gteq, class: "from-date" %>
+  <%= f.search_field :created_at_lteq, class: "to-date" %>
+  <%= f.submit %>
+<% end %>
+
+
+ <div class="card shadow-lg p-4">
+      <% if @applies.present? %>
+        <% @applies.each do |applied| %>
+        <div class="card mb-2 shadow-sm">
+          <div class="row">
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title fw-bold mb-3">
+                <span >Job Tilte:</span>
+                  <a href=""><%= link_to applied.job.name, my_path(id: applied.user_id), class: "text-decoration-none" %>
+                    </a>
+                </h3>
+                <h6 class="card-text mb-3">
+                <span >Candidates Name:</span>
+                <span class="ms-4">
+                 <a href=""><%= link_to applied.full_name, my_path(id: applied.user_id), class: "text-decoration-none" %>
+                    </a>
+                </span>
+                <h6 class="card-text">
+                 <span >Candidates CV:</span>
+                  <span class="ms-5">
+                  </span>
+                </h6>
+                <div class="row">
+                  <div class="col-md-9 d-flex align-items-center">
+                    <h6 class="card-text mb-4">
+                       <span >Candidates Email:</span>
+                        <span class="ms-4 text-info">
+                        <%= applied.email %>
+                        </span>
+                    </h6>
+                  </div>
+                  <div class="col-md-4 justify-content-end">
+                    <p>
+                      <small><strong class="text-warning"><%= applied.created_at %></strong></small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-info" role="alert">
+         No results found !
+        </div>
+      <% end %>
+
+ </div>

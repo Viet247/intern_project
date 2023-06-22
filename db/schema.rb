@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_042840) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_080128) do
   create_table "applies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -19,6 +19,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_042840) do
     t.datetime "updated_at", null: false
     t.bigint "job_id"
     t.bigint "user_id"
+    t.integer "city_id"
+    t.integer "industry_id"
+    t.index ["city_id"], name: "index_applies_on_city_id"
+    t.index ["industry_id"], name: "index_applies_on_industry_id"
     t.index ["job_id"], name: "index_applies_on_job_id"
     t.index ["user_id"], name: "index_applies_on_user_id"
   end
