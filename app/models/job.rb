@@ -11,13 +11,14 @@ class Job < ApplicationRecord
       text :description, stored: true, boost: 74
       text :name, stored: true, boost: 92  
       text :requirements, stored: true, boost: 68 
-      text :work_place, stored: true, boost: 86 do |v|
+      text :city_name, stored: true, boost: 86 do |v|
         v.city.name
       end
       text :company_name, stored: true, boost: 80
       integer :id, stored: true
     end
 end
+
 
 
 

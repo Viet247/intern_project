@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_040153) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_042840) do
   create_table "applies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -25,8 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_040153) do
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
-    t.string "slug"
-    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "job_count"
@@ -61,11 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_040153) do
     t.datetime "updated_at", null: false
     t.bigint "industry_id"
     t.bigint "city_id"
-    t.bigint "industries_id"
-    t.bigint "cities_id"
-    t.index ["cities_id"], name: "index_jobs_on_cities_id"
     t.index ["city_id"], name: "index_jobs_on_city_id"
-    t.index ["industries_id"], name: "index_jobs_on_industries_id"
     t.index ["industry_id"], name: "index_jobs_on_industry_id"
   end
 
