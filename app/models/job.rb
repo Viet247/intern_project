@@ -2,6 +2,8 @@ class Job < ApplicationRecord
     belongs_to :industry
     belongs_to :city
     has_many :applies
+    has_many :favourites
+    has_many :users, through: :favourites
 
     searchable do
       text :benefit, stored: true, boost: 73

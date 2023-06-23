@@ -20,6 +20,7 @@
 </div>
 
 <%= link_to "Apply", apply_path, class: "results__fav-icon" %>
-<%= link_to "Favourite", class: "results__fav-icon" %>
+<%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: "results__fav-icon" %>
+
 
 

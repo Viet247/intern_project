@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_080128) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_143936) do
   create_table "applies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -33,6 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_080128) do
     t.datetime "updated_at", null: false
     t.integer "job_count"
     t.index ["name"], name: "index_cities_on_name", unique: true
+  end
+
+  create_table "favourites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id", "user_id"], name: "index_favourites_on_job_id_and_user_id", unique: true
   end
 
   create_table "industries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -82,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_080128) do
     t.datetime "locked_at"
     t.string "full_name"
     t.string "curriculum_vitate"
+    t.boolean "is_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
