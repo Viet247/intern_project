@@ -13,7 +13,7 @@
 <h2 id ="vn">Viet Nam</h2>
 <div class="grid-container">
   <%@cities_vn.each do |city|%>
-    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: city.name) %>
+    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: "\"#{city.name}\"") %>
   <%end%>
 </div>
 
@@ -21,7 +21,7 @@
 
 <div class="grid-container">
  <%@cities_int.each do |city|%>
-    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: city.name) %>
+    <%= link_to "#{city.name}:#{city.job_count}", search_jobs_path(search: "\"#{city.name}\"") %>
   <%end%>
 </div>
 

@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :applies
   has_many :jobs, through: :applies
   has_many :favourites
+  has_many :histories
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable

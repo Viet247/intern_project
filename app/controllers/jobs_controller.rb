@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+
+  before_action :authenticate_user!, only: :show
   # get data for top page
   def index
     @total_jobs = Job.count
@@ -24,6 +26,8 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find params[:id]
+    unless History.exists?(job_id: params[:id], user_id: current_user.id)
+      History.create(job_id: params[:id], user_id: current_user.id)
+    end
   end
 end
-

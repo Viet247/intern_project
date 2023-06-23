@@ -1,0 +1,10 @@
+.detail__infor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+

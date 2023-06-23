@@ -1,7 +1,9 @@
-<%= link_to "Top",root_path %>
-<%= link_to "#{@job.city.name}", search_jobs_path(search: "\"#{@job.city.name}\"")%>
-<%= link_to "#{@job.industry.title}", search_jobs_path(search: "\"#{@job.industry.title}\"")%>
-<%= @job.name %> 
+<div class = "path">
+  <%= link_to "Top",root_path %>
+  <%= link_to "#{@job.city.name}", search_jobs_path(search: "\"#{@job.city.name}\"")%>
+  <%= link_to "#{@job.industry.title}", search_jobs_path(search: "\"#{@job.industry.title}\"")%>
+  <%= @job.name %> 
+<div>
 
 <div class = "results__detail">
   <div class="results__detail-infor">
@@ -10,17 +12,25 @@
     <b>Location:</b> <%=@job.city.name%>  <br />
     <b>Type work:</b> <%=@job.type_work%>  <br />
     <b>Salary:</b> <%=@job.salary%> <br />
-    <b>Benefit:</b> <pre><%=@job.benefit%><pre> <br />
+    <div>
+    <b>Benefit:</b> <pre class = "infor__text"><%=@job.benefit%><pre> <br />
+    </div>
+    <div>
     <b>Requirements:</b> <pre><%=@job.requirements%> <pre><br />
+    </div>
+    <div>
     <b>Long description:</b> <pre><%=@job.description%> <pre> <br />
+    </div>
   </div>
   <div class = "results__fav">
     <%= link_to "Apply", apply_path(job_id: @job.id), class: "results__fav-icon" %> 
   </div>
 </div>
 
-<%= link_to "Apply", apply_path, class: "results__fav-icon" %>
-<%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: "results__fav-icon" %>
+<div class = "btn_function">
+  <%= link_to "Apply", apply_path, class: "results__fav-icon" %>
+  <%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: "results__fav-icon" %>
+</div>
 
 
 

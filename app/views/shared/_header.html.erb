@@ -1,6 +1,5 @@
 <div class="header">
   <a class="logo" href="/">
-  
     <%= image_tag "logo.jpg", size:"80x70", alt: "venjob-logo", class: "venjob-logo" %>
   </a>
   <div class="header-right">
@@ -13,6 +12,7 @@
       <%= link_to "Register", register_1_path%>
     <% end %>
     <%= link_to "Favourite", favourite_path%>
-    <%= link_to "History", new_user_session_path%>
+    <%= link_to 'History', history_path%>
   </div>
 </div>
+

@@ -1,0 +1,20 @@
+<div class="">
+  <h3>HISTORY JOBS</h3>
+  <%= form_tag history_path, method: :post do %>
+    <% @history_jobs.each do |job|%>
+      <div class = "results__detail-infor">
+      <h5 class="">
+        <%= link_to job.name, job_path(job.id)%>
+      </h5>
+      <h5 class=""><%= job.description.slice(0,250) %></h5>
+      <p class ="detail__infor">
+      <span>Location: <%= job.salary %></span>
+      <span>Salary:<%= job.city.name %><span>
+      <p>  
+      </div>     
+    <%end%>
+    <div class ="btn">
+    <%= submit_tag 'Apply' %>
+    </div>
+  <% end %>
+</div>

@@ -4,6 +4,7 @@ class Job < ApplicationRecord
     has_many :applies
     has_many :favourites
     has_many :users, through: :favourites
+    has_many :histories
 
     searchable do
       text :benefit, stored: true, boost: 73

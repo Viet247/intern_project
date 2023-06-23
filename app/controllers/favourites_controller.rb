@@ -4,11 +4,11 @@ class FavouritesController < ApplicationController
       job_id = params[:job_id]
       user_id = current_user.id
       if Favourite.exists?(job_id: job_id, user_id: user_id)
-        flash[:alert] = "This job is already in your favourites"
+        flash[:alert] = "Công việc này đã có"
         @exists = true
       else
         favourite = Favourite.new(job_id: job_id, user_id: user_id)
-        flash[:alert] = "The job has been added into your favourites" if favourite.save
+        flash[:alert] = "Đã thêm công việc này vào danh sách các công việc yêu thích" if favourite.save
       end
       redirect_to request.referrer
     end

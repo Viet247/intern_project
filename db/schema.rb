@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_143936) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_23_022851) do
   create_table "applies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "full_name"
     t.string "email"
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_143936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "job_count"
+    t.string "country", default: "Viet Nam"
     t.index ["name"], name: "index_cities_on_name", unique: true
   end
 
@@ -41,6 +42,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_143936) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id", "user_id"], name: "index_favourites_on_job_id_and_user_id", unique: true
+  end
+
+  create_table "histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "job_id"
+    t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_id", "user_id"], name: "index_histories_on_job_id_and_user_id", unique: true
   end
 
   create_table "industries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
