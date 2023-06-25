@@ -9,4 +9,3 @@ class HistoriesController < ApplicationController
   end
 end
 
-

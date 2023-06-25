@@ -1,0 +1,12 @@
+.heading__mypage-field{
+    display:flex;
+    margin: 10px 0;
+}
+
+.heading__mypage-links{
+    display: flex;
+    justify-content: space-around;
+}
+.form_label{
+    min-width: 142px;
+}

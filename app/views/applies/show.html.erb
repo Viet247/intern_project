@@ -1,15 +1,28 @@
-<div id="container">
+<div class="row">
+<div class="mx-auto col-10 col-md-8 col-lg-6">
+<div class = "card p-3 " style="border:none">
+
   <aside class="ribbon3"><span class = "ribbon3__number">2</span> Apply confirmation</aside>
-  <h1 class ="">Confirmation</h1>
+  <h1 class ="text-center">Confirmation</h1>
   <div class="input__information">
-    <b>Full name: </b><%= current_user.full_name %> <br />
-    <b>Email: </b><%= current_user.email%> <br />
-    <b>CV: </b><%= link_to current_user.curriculum_vitate.url do %>
-        <%= current_user.curriculum_vitate.file.filename %>
-        <% end %>
+  <div class="form-group">
+  <label class="form_label">Full name:</label> <span class= "form-control"><%= current_user.full_name %></span>
   </div>
+   <div class="form-group">
+  <label class="form_label">Email:</label> <span class= "form-control"><%= current_user.email%></span>
+  </div>
+   <div class="form-group">
+  <label class="form_label">CV:</label> <span class= "form-control"><%= link_to current_user.curriculum_vitate.url do %>
+        <%= current_user.curriculum_vitate.file.filename %>
+        <% end %></span>
+  </div>
+   </div>
   <div class = "confirmation__btn">
-    <%= link_to "Edit",apply_path, class: "button"%>
+    <%= link_to "Edit",request.referer, class: "button btn btn-primary"%>
     <%= link_to "Done", confirm_path, data: { turbo_method: 'post' }, class: 'btn btn-primary' %>
   </div>
+
 </div>
+</div>
+</div>
+

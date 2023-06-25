@@ -10,25 +10,27 @@
   <h3>Result for: <%=params[:search] %></h3>
 </div>
 <div class= "paging">
-  <p >Paging: 24</p>
+  <%= paginate @jobs %>
 </div>
-
 <div class = "results__detail">
   <%@jobs.each do |job|%>
-    <div class="results__detail-infor">
+    <div class="results__detail-infor border border-primary rounded">
       <b>Job title:</b> <%=job.name%> <br />
-      <b>Short description:</b> <%=job.description%> <br />
+      <b>Short description:</b> 
+      <% if ((job.description.nil?) == false)%>
+        <%=job.description.slice(0,274)%>...<a href="">xem thêm</a> <br />
+      <%end%>
       <b>Location:</b> <%=job.city.name%>
       <b class ="results__details-salary">Salary: <%=job.salary%></b>
     </div>
-    <div class = "results__fav">
-      <%= link_to "Favourite", class: "results__fav-icon" %>
-      <%= link_to "detail",job_path(job.id), class: "results__fav-icon" %>
+    <div class = "results__fav btn_func_job border border-primary rounded">
+      <%= link_to "Favourite", favourite_add_path(job_id: job.id), data: {turbo_method: 'post'}, class: "btn btn-primary btn_func_job" %>
+      <%= link_to "detail",job_path(job.id), class: "btn btn-primary" %>
     </div>
   <%end%>
 </div>
 <div class= "paging">
-  <p >Paging: 24</p>
+  <%= paginate @jobs %>
 </div>
 
 

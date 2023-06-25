@@ -1,6 +1,7 @@
 class AppliesController < ApplicationController
-  
+  before_action :authenticate_user!
   def new
+  
     unless current_user.curriculum_vitate?
       flash[:notice] = "You must to upload your CV before Applying!"
       return redirect_to my_info_path
@@ -14,6 +15,7 @@ class AppliesController < ApplicationController
   end
 
   def confirm
+   # vi sao khong hien dung ten nguoi apply
     job = Job.find(session[:job_id])
     apply = Apply.new(email: params[:email],
                       full_name: params[:fullname],

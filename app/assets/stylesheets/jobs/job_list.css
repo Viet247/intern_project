@@ -48,5 +48,32 @@
   margin: 0 5px;
 }
 
+.pagination  {
+  display: flex;
+  justify-content: center;
+  
+ 
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination .current {
+  background-color:#284ea7;
+  color: #fff;
+}
+
+.page, .prev a{
+  margin: 0 10px;
+}
+
+.btn_func_job{
+  margin-right: 5px;
+  
+}
+
+
+
 
 

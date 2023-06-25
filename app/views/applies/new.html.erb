@@ -2,27 +2,35 @@
   <aside class="ribbon3"><span class = "ribbon3__number">1</span> New</aside>
 </div>
 
+
+<div class="row">
+<div class="mx-auto col-10 col-md-8 col-lg-6">
+<div class = "card p-3 border border-primary">
 <div class ="form__apply">
   <h1 class ="form__apply-heading">Apply form</h1>
   <%= form_with url: apply_path, method: :post do |f|%>
-    <div class="form__apply-field">
-      <%= f.label :fullname, "Full name:", class: "form__label"%>
-      <%= f.text_field :fullname, maxlength: "200", require: true, class: "form__text-field", value: current_user.full_name %> 
+    <div class="form-group">
+      <%= f.label :fullname, "Full name:", class: "form-label"%>
+      <%= f.text_field :fullname, maxlength: "200", require: true, class: "form-control", value: current_user.full_name %> 
     </div>
     <br />
-    <div class="form__apply-field">
-      <%= f.label :email, "Email:", class: "form__label"%>
-      <%= f.text_field :email, class: "form__text-field", value: current_user.email%> 
+    <div class="form-group">
+      <%= f.label :email, "Email:", class: "form-label"%>
+      <%= f.text_field :email, class: "form-control", value: current_user.email%> 
     </div>
     <br />
-    <div class="form__apply-field"> 
-      <%= f.label :cv, "CV:", class: "form__label"%>
+    <div class="form-group"> 
+      <%= f.label :cv, "CV: ", class: "form-label"%>
       <%= link_to current_user.curriculum_vitate.url do %>
         <%= current_user.curriculum_vitate.file.filename %>
       <% end %>
     </div>
     <div class ="form__apply-btn">
-    <%= f.submit "Confirm", class: "button confirm__btn" %>
+    <%= f.submit "Confirm", class: "button confirm__btn btn btn-primary" %>
     </div>
   <% end %>
+</div>
+
+</div>
+</div>
 </div>

@@ -16,9 +16,9 @@
 <h2 class = "subject"> Latest Job</h2>
 <div class="container__latest-jobs">
   <%@latest_jobs.each do |job|%>
-    <div class="latest-jobs-detail">
+    <div class="latest-jobs-detail border border-primary rounded">
       <b>Job title:</b> <%=job.name%> <br />
-      <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "detail", job_path(job.id)%> <br />
+      <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "xem thêm"%> <br />
       <b>Location:</b> <%=job.city.name%>  <br />
       <b>Salary:</b> <%=job.salary%>
     </div>

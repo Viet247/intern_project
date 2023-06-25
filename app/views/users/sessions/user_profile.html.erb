@@ -1,19 +1,25 @@
-<h1 class="heading__mypage">My Page</h1>
+<h1 class="page-header text-center">My Page</h1>
+<div class="row">
+<div class="mx-auto col-10 col-md-8 col-lg-6">
+<div class = "card p-3 border border-primary">
 
-<div class="heading__mypage-infor">
 
   <div class="heading__mypage-field">
-    <b>Email:</b> <%= resource.email%>
+    <label class="form_label">Email:</label> <span class= "form-control"><%= resource.email%></span>
   </div>
   <div class="heading__mypage-field">
-    <b>Full Name:</b> <%= resource.full_name%>
+    <label class="form_label">Full Name:</label> <span class= "form-control"><%= resource.full_name%></span>
   </div>
   <div class="heading__mypage-field">
-    <b>MY CV:</b> <%= link_to "Download", "#{resource.curriculum_vitate.url}"%>
+    <label class="form_label">Mv CV:</label> <%= link_to "Download", "#{resource.curriculum_vitate.url}"%>
   </div>
 
   <div class="heading__mypage-links">
-    <%= link_to "Update",my_info_path%>
-    <%= link_to "My Jobs",my_jobs_path%>
+    <%= link_to "Update",my_info_path, class: "btn btn-primary"%>
+    <%= link_to "My Jobs",my_jobs_path, class: "btn btn-primary"%>
   </div>
+
 </div>
+</div>
+</div>
+

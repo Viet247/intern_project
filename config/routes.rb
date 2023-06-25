@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
 
     
-    get '/admin/login', to: 'users/sessions#create'
+    get '/admin/login', to: 'admin/sessions#new'
   end
 
   root "jobs#index"
@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
 
   get '/applied_jobs', to: 'applied_jobs#index'
-  post '/applied_jobs', to: 'applied_jobs#download'
+  get '/applied_jobs/down_load', to: 'applied_jobs#download_csv'
   
   
   get '/favourite', to: 'favourites#show'
@@ -62,10 +62,8 @@ Rails.application.routes.draw do
   delete '/favourite/destroy', to: 'favourites#destroy'
   post '/favourite/apply', to: 'favourites#apply'
 
+
   get '/history', to: 'histories#index'
   post '/history', to: 'histories#apply'
-
-
-  
 end
 

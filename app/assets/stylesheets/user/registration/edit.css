@@ -1,0 +1,15 @@
+.field{
+    display: flex;
+    margin: 10px 0;
+    
+}
+
+.form-control__cv{
+    height: 43px;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}

@@ -1,35 +1,32 @@
-<div class = "path">
+<div class = "text-center">
+ <h1>
   <%= link_to "Top",root_path %>
   <%= link_to "#{@job.city.name}", search_jobs_path(search: "\"#{@job.city.name}\"")%>
   <%= link_to "#{@job.industry.title}", search_jobs_path(search: "\"#{@job.industry.title}\"")%>
   <%= @job.name %> 
-<div>
+  </h1>
+</div>
 
-<div class = "results__detail">
-  <div class="results__detail-infor">
-    <h2> <b>Job title:</b> <%=@job.name%> </h2>
-    <b>Company:</b> <%=@job.company_name%>  <br />
-    <b>Location:</b> <%=@job.city.name%>  <br />
-    <b>Type work:</b> <%=@job.type_work%>  <br />
-    <b>Salary:</b> <%=@job.salary%> <br />
-    <div>
-    <b>Benefit:</b> <pre class = "infor__text"><%=@job.benefit%><pre> <br />
-    </div>
-    <div>
-    <b>Requirements:</b> <pre><%=@job.requirements%> <pre><br />
-    </div>
-    <div>
-    <b>Long description:</b> <pre><%=@job.description%> <pre> <br />
-    </div>
+
+<div class = "results__detail card-body">
+  <div class="results__detail-infor border border-primary rounded">
+    <h5 class="card-title">Job title: <%=@job.name%> </h5>
+    <h6 class="card-subtitle mb-2 text-muted">Company: <%=@job.company_name%>  </h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Location: <%=@job.city.name%></h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Type work: <%=@job.type_work%></h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Salary: <%=@job.salary%></h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Benefit: <pre class="viet card-text"><%=@job.benefit%><pre> </h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Requirements: <pre class="card-text"><%=@job.requirements%> <pre></h6>
+    <h6 class = "card-subtitle mb-2 text-muted">Long description: <pre class="card-text"><%=@job.description%> <pre></h6>
   </div>
-  <div class = "results__fav">
-    <%= link_to "Apply", apply_path(job_id: @job.id), class: "results__fav-icon" %> 
+  <div class = "results__fav border border-primary rounded">
+    <%= link_to "Apply", apply_path(job_id: @job.id), class: " btn btn-primary" %> 
   </div>
 </div>
 
 <div class = "btn_function">
-  <%= link_to "Apply", apply_path, class: "results__fav-icon" %>
-  <%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: "results__fav-icon" %>
+  <%= link_to "Apply", apply_path, class: " btn btn-primary" %>
+  <%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: " btn btn-primary" %>
 </div>
 
 

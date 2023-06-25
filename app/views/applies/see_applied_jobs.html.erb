@@ -1,9 +1,10 @@
-  <div class="container__applied_jobs">
-    <h3 class="applied_jobs-heading"> Applied jobs</h3>
+  
+<h2 class="page-header text-center">Applied jobs </h2>
+<div class="container__latest-jobs">
     <% @applied_jobs.each  do |job|%>
-      <div class="applied__jobs-detail">
+      <div class="latest-jobs-detail border border-primary rounded">
         <b>Job title:</b> <%=job.name%> <br />
-        <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "detail", job_path(job.id)%> <br />
+        <b>Short description:</b> <%=job.description.slice(0,274)%>...<%= link_to "xem thêm"%> <br />
         <div class = "applied__jobs-detail-infor">
           <b>Location:</b> <%=job.city.name%>  
           <b>Salary:</b> <%=job.salary%>
@@ -11,5 +12,16 @@
         </div>
     </div>
   <%end%>
+
+
 </div>
+
+
+
+
+
+  
+  
+  
+  
 

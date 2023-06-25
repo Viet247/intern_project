@@ -1,0 +1,29 @@
+b {
+    margin-right: 20px;
+}
+
+
+.form__time{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form__time-ele{
+    width: 235px;
+}
+
+.form-email{
+    margin-bottom: -24px;
+}
+
+.btn__admin{
+    display: flex;
+
+    justify-content: space-between;
+    margin-top: 24px;
+}
+
+.pagination{
+    margin: 20px;
+}
+

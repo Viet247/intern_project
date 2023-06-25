@@ -3,16 +3,33 @@
     <%= image_tag "logo.jpg", size:"80x70", alt: "venjob-logo", class: "venjob-logo" %>
   </a>
   <div class="header-right">
-    <%= link_to "Home", root_path%>
-    <% if user_signed_in? %>
-      <%= link_to "My page",my_path%>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
-    <% else %>
+    <%if user_signed_in?
+        if current_user.is_admin? == false%>
+          <%= link_to "Home", root_path%>
+        <%end%>
+    <%else%>
+      <%= link_to "Home", root_path%>
+    <%end%>
+    <%if user_signed_in?
+        if current_user.is_admin?%>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
+        <%else%>
+          <%= link_to "My page",my_path%>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
+        <%end%>
+    <%else%>
       <%= link_to "Login", new_user_session_path%>
       <%= link_to "Register", register_1_path%>
     <% end %>
-    <%= link_to "Favourite", favourite_path%>
-    <%= link_to 'History', history_path%>
+    <%if user_signed_in?
+        if current_user.is_admin==false%>
+          <%= link_to "Favourite", favourite_path%>
+          <%= link_to 'History', history_path%>
+        <%end%>
+      <%else%>
+        <%= link_to "Favourite", favourite_path%>
+        <%= link_to 'History', history_path%>
+    <%end%>
   </div>
 </div>
 

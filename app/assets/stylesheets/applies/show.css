@@ -3,7 +3,8 @@
 }
 .confirmation__btn {
   margin-top: 50px;
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
 }
 .confirmation__btn > a{
  

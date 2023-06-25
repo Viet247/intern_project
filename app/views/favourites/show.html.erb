@@ -1,24 +1,25 @@
-<h3> FAVORITE JOBS</h3>
+<h3 class = "text-center"> FAVORITE JOBS</h3>
   <%= form_tag favourite_apply_path, method: :post do %>
-    <div class = "results__detail">
+    <div class = "results__detail_3">
       <% @favourite_jobs.each do |job|%>
-        <div class = "results__detail-infor">
-          <h5 class=""><%= link_to job.name, job_path(job.id)%></h5>
-          <h5 class=""><%= job.description.slice(0,250) %></h5>
+        <div class = "results__fav border border-primary rounded">
+         <input type="radio" name ="apply" value="<%= job.id %>"/>
+      </div> 
+        <div class = "results__detail-infor border border-primary rounded">
+          <p> <b>Job title:</b><%= link_to job.name, job_path(job.id)%></p>
+          <p> <b>Short description:</b><%= job.description.slice(0,250) %></p>
           <p class ="detail__infor">
               <span>Location: <%=job.city.name %></span>
               <span>Salary:<%= job.salary %><span>
           <p>  
         </div>
-        <div class="results__fav">
+        <div class="results__fav border border-primary rounded">
           <%= link_to 'Remove', favourite_destroy_path(job_id: job.id) , data: {turbo_method: 'delete', turbo_confirm: 'Are you sure?'} %>
         </div>
-        
-    
       <% end %>
     </div>
     <div class ="btn">
-      <%= submit_tag 'Apply'%>
+      <%= submit_tag 'Apply', class: "btn btn-primary"%>
     </div>
   <% end %>
 </div>

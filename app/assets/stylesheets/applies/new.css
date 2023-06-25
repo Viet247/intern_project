@@ -43,10 +43,11 @@ aside {
 }
 
 .form__label{
+	min-width: 100px;
 }
 
 .form__apply{
-	margin-bottom: 90px;
+	margin-bottom: 100px;
 }
 
 .form__text-field{

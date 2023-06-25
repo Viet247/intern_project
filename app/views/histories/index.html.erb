@@ -1,20 +1,25 @@
 <div class="">
-  <h3>HISTORY JOBS</h3>
+  <h3 class = "text-center">HISTORY JOBS</h3>
   <%= form_tag history_path, method: :post do %>
+  <div class = "results__detail ">
     <% @history_jobs.each do |job|%>
-      <div class = "results__detail-infor">
-      <h5 class="">
-        <%= link_to job.name, job_path(job.id)%>
-      </h5>
-      <h5 class=""><%= job.description.slice(0,250) %></h5>
+      <div class = "results__detail-infor border border-primary rounded">
+     
+        <p> <b>Job title:</b><%= link_to job.name, job_path(job.id)%></p>
+      
+      <p> <b>Short description:</b><%= job.description.slice(0,250) %></p>
       <p class ="detail__infor">
           <span>Location: <%=  job.city.name %></span>
           <span>Salary:<%= job.salary %><span>
       <p>  
+      </div>
+      <div class = "results__fav border border-primary rounded">
+         <input type="radio" name ="apply" value="<%= job.id %>"/>
       </div>     
     <%end%>
+  </div>
     <div class ="btn">
-    <%= submit_tag 'Apply' %>
+    <%= submit_tag 'Apply',class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
