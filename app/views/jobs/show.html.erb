@@ -25,7 +25,7 @@
 </div>
 
 <div class = "btn_function">
-  <%= link_to "Apply", apply_path, class: " btn btn-primary" %>
+  <%= link_to "Apply", apply_path(job_id: @job.id), class: " btn btn-primary" %>
   <%= link_to "Favourite", favourite_add_path(job_id: @job.id), data: {turbo_method: 'post'}, class: " btn btn-primary" %>
 </div>
 

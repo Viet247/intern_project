@@ -23,11 +23,10 @@ Rails.application.routes.draw do
     get '/forgot_password', to: 'users/passwords#edit'
 
     # routes for apply job
-    get  '/apply',   to: 'applies#new'
-    post '/apply',   to: 'applies#confirm'
-    get  '/confirm', to: 'applies#show'
-    post '/confirm', to: 'applies#create'
-    get  'done',     to: 'applies#done'
+    get  '/apply',   to: 'applies#new' #r
+    get  '/confirm', to: 'applies#show' #r
+    post '/confirm', to: 'applies#create' #r
+    get  'done',     to: 'applies#done' #r
 
     # route for applied jobs
     get '/my/jobs', to: 'applies#see_applied_jobs'

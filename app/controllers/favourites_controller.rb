@@ -4,7 +4,7 @@ class FavouritesController < ApplicationController
       job_id = params[:job_id]
       user_id = current_user.id
       if Favourite.exists?(job_id: job_id, user_id: user_id)
-        flash[:alert] = "Công việc này đã có"
+        flash[:alert] = "Công việc này đã có trong Favourites"
         @exists = true
       else
         favourite = Favourite.new(job_id: job_id, user_id: user_id)
