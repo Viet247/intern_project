@@ -52,8 +52,8 @@ Rails.application.routes.draw do
   end
 
 
-  get '/applied_jobs', to: 'applied_jobs#index'
-  get '/applied_jobs/down_load', to: 'applied_jobs#download_csv'
+  get '/admin/applies', to: 'applied_jobs#index'
+  get '/admin/applies/down_load', to: 'applied_jobs#download_csv'
   
   
   get '/favourite', to: 'favourites#show'

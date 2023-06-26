@@ -3,7 +3,7 @@ class AppliedJobsController < ApplicationController
     def index 
         prepare_search_data
         @q = Apply.ransack(params[:q])
-        @applies = @q.result(distinct: true).page(params[:page]).per(5)
+        @applies = @q.result(distinct: true).order("created_at DESC").page(params[:page]).per(5)
     end
 
     def download_csv
@@ -17,7 +17,7 @@ class AppliedJobsController < ApplicationController
 
         respond_to do |format|
             format.csv { send_data csv_file,
-                filename: "users.csv" }
+                filename: "applied_jobs.csv" }
             end
     end
     
@@ -31,3 +31,4 @@ class AppliedJobsController < ApplicationController
         @years = (2021..2025).to_a
     end
 end
+

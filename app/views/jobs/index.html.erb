@@ -30,7 +30,7 @@
 <div class="container">
   <%@top_jobs_cities.each do |city|%>
     <div class="container__job-top-city">
-      <%= link_to "#{city.name}: #{city.job_count}", search_jobs_path(search: city.name)%>
+      <%= link_to "#{city.name}: #{city.job_count}", search_jobs_path(search:  "\"#{city.name}\"" )%>
     </div>
   <%end%>
   <div class ="container__all" ><%= link_to "All cities", cities_url %></div>
@@ -40,7 +40,7 @@
 <div class="container">
   <%@top_jobs_industries.each do |industry|%>
     <div class="container__job-top-city">
-      <%= link_to "#{industry.title}: #{industry.job_count}", search_jobs_path(search: industry.title)%>
+      <%= link_to "#{industry.title}: #{industry.job_count}", search_jobs_path(search: "\"#{industry.title}\"")%>
     </div>
   <%end%>
   <div class ="container__all" ><%= link_to "All industries", industries_url %></div>
