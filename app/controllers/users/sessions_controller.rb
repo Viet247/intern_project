@@ -1,6 +1,10 @@
 class Users::SessionsController < Devise::SessionsController
   def user_profile
-    self.resource = current_user
+    if(current_user.is_admin?)
+      self.resource = User.find(params[:id])
+    else
+      self.resource = current_user
+    end
   end
 
   def create
