@@ -14,6 +14,7 @@ class FavouritesController < ApplicationController
     end
   
     def show
+      # byebug
       @favourite_jobs = Job.joins(:users).where(favourites: { user_id: current_user.id })
     end
   

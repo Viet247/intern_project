@@ -46,7 +46,7 @@ task :import => [:environment] do
   Job.import jobs, on_duplicate_key_update: [:benefit, :industry_id, :company_address, :company_district, :company_id, :company_name, :company_province, :description, :level, :name, :requirements, :salary, :type_work, :contact_email, :contact_name, :contact_phone, :city_id]
 
   # create indexs for  jobs
-  # Job.reindex
+  Job.reindex
 
   # count jobs
   jobs_industry = Industry.all.map do |industry|

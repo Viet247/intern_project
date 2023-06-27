@@ -1,5 +1,5 @@
   
-<h2 class="page-header text-center">Applied jobs </h2>
+<h2 class="page-header text-center  margin__btm">Applied jobs </h2>
 <div class="container__latest-jobs">
     <% @applied_jobs.each  do |job|%>
       <div class="latest-jobs-detail border border-primary rounded">
@@ -10,6 +10,8 @@
           <b>Salary:</b> <%=job.salary%>
           <b>Applied at:</b> <%= job.applied_at %>
         </div>
+    </div>
+    <div class="margin_btm">
     </div>
   <%end%>
 

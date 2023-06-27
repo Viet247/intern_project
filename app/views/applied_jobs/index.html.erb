@@ -38,7 +38,7 @@
 <div class="results__detail-infor border border-secondary rounded">
       <b class = "badge badge-info font-weight-bold">Job title:</b> <a href=""><%= link_to applied.job.name, job_path(applied.job_id)%></a> <br />
       <b class = "badge badge-info">Candidates Name:</b> <a href=""><%= link_to applied.full_name, my_path(id: applied.user_id) %></a> <br /> 
-      <b class = "badge badge-info">Candidates CV:</b> <%= link_to applied.user.curriculum_vitate.url do %><%= applied.user.curriculum_vitate.file.filename %><%end%><br />
+      
       <b class = "badge badge-info">Candidates Email:</b><%= applied.email %>
       <b class = "results__details-salary"><%= applied.created_at %></b>
 </div>   
